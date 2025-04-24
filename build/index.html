@@ -1,1 +1,90 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Finance Manager</title><meta name="description" content="Track and manage your expenses with ease."><meta name="author" content="Your Name"><link rel="icon" href="logo.svg" type="svg+xml"><meta property="og:title" content="Finance Manager"><meta property="og:description" content="A smart way to track your income and expenses."><meta property="og:image" content="/logo192.png"><meta property="og:url" content="https://yourdomain.com"><link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"><link rel="stylesheet" href="/style.css"><script>function loadCSS(e){let o=document.createElement("link");o.rel="stylesheet",o.href=e,document.head.appendChild(o)}document.addEventListener("DOMContentLoaded",(function(){const e=localStorage.getItem("currentPage");"login"===e?loadCSS("/Login.css"):"register"===e?loadCSS("/Register.css"):"dashboard"===e?loadCSS("/Home.css"):"progress"===e&&loadCSS("/circular-progressbar.css")}))</script><script>document.addEventListener("DOMContentLoaded",(function(){"enabled"===localStorage.getItem("darkMode")&&document.body.classList.add("dark-mode")}))</script><script defer="defer" src="/static/js/main.e28cfd6e.js"></script><link href="/static/css/main.1a3e69b0.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js")</script></body></html>
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- Primary Meta Tags -->
+  <title>Finance Manager | Track and Manage Your Expenses</title>
+  <meta name="description" content="Track and manage your expenses with ease. A smart way to track your income and expenses.">
+  <meta name="author" content="Your Name">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:title" content="Finance Manager">
+  <meta property="og:description" content="A smart way to track your income and expenses.">
+  <meta property="og:image" content="https://yourdomain.com/logo192.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://yourdomain.com/">
+  <meta property="twitter:title" content="Finance Manager">
+  <meta property="twitter:description" content="A smart way to track your income and expenses.">
+  <meta property="twitter:image" content="https://yourdomain.com/logo192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" crossorigin>
+  <link rel="stylesheet" href="/static/css/main.1a3e69b0.css">
+  
+  <!-- Theme and Page-Specific CSS -->
+  <script>
+    (function() {
+      try {
+        // Apply theme before page renders to prevent FOUC
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        // Load page-specific CSS
+        const currentPage = localStorage.getItem('currentPage');
+        if (currentPage) {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = `/${currentPage.charAt(0).toUpperCase() + currentPage.slice(1)}.css`;
+          link.onerror = () => console.warn(`Failed to load ${currentPage} CSS`);
+          document.head.appendChild(link);
+        }
+      } catch (e) {
+        console.warn('Storage access error:', e);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <noscript>
+    <div class="noscript-warning alert alert-danger text-center p-4 m-0">
+      <h2>JavaScript is Disabled</h2>
+      <p>This application requires JavaScript to function properly. Please enable JavaScript in your browser settings.</p>
+    </div>
+  </noscript>
+
+  <div id="root" role="main" aria-live="polite"></div>
+
+  <!-- Progressive Web App Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful');
+            registration.update();
+          })
+          .catch(err => console.warn('ServiceWorker registration failed: ', err));
+      });
+    }
+  </script>
+
+  <!-- Deferred JavaScript -->
+  <script defer src="/static/js/main.e28cfd6e.js"></script>
+</body>
+</html>
